@@ -43,6 +43,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    private void test2(){
+        // 我也增加一个方法方法方法方法方法方法
+    }
+
+
     public void test(){
         // 增加一个方法
     }
