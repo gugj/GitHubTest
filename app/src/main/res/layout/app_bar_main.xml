@@ -8,22 +8,23 @@
     android:fitsSystemWindows="true"
     tools:context="com.roch.github_test.MainActivity">
 
+    <!-- 这里是Toolbar -->
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"/>
-
     </android.support.design.widget.AppBarLayout>
 
+    <!-- 这里是引用的首页内容布局 -->
     <include layout="@layout/content_main"/>
 
+    <!-- 这里是附加的Action动作 -->
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
