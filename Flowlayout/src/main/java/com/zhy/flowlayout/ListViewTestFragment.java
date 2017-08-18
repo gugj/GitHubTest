@@ -24,56 +24,54 @@ import java.util.Set;
 /**
  * Created by zhy on 15/9/10.
  */
-public class ListViewTestFragment extends Fragment
-{
+public class ListViewTestFragment extends Fragment {
 
+    /**
+     * ListView的适配器的数据源
+     */
     private List<List<String>> mDatas = new ArrayList<List<String>>();
     private ListView mListView;
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_listview, container, false);
     }
 
     @Override
-    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState)
-    {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
+        // 初始化数据
         initDatas();
 
         mListView = (ListView) view.findViewById(R.id.id_listview);
-        mListView.setAdapter(new CommonAdapter<List<String>>(getActivity(), R.layout.item_for_listview, mDatas)
-        {
+        // ListView设置适配器
+        mListView.setAdapter(new CommonAdapter<List<String>>(getActivity(), R.layout.item_for_listview, mDatas) {
+            // ListView流布局中的选中内容的集合
             Map<Integer, Set<Integer>> selectedMap = new HashMap<Integer, Set<Integer>>();
 
-
             @Override
-            public void convert(final ViewHolder viewHolder, List<String> strings)
-            {
+            public void convert(final ViewHolder viewHolder, List<String> strings) {
+                // ListView流布局中适配器条目的布局View
                 TagFlowLayout tagFlowLayout = viewHolder.getView(R.id.id_tagflowlayout);
-
-                TagAdapter<String> tagAdapter = new TagAdapter<String>(strings)
-                {
+                // 流布局的适配器
+                TagAdapter<String> tagAdapter = new TagAdapter<String>(strings) {
                     @Override
-                    public View getView(FlowLayout parent, int position, String o)
-                    {
+                    public View getView(FlowLayout parent, int position, String o) {
                         //can use viewholder
-                        TextView tv = (TextView) mInflater.inflate(R.layout.tv,
-                                parent, false);
+                        TextView tv = (TextView) mInflater.inflate(R.layout.tv, parent, false);
                         tv.setText(o);
                         return tv;
                     }
                 };
+                // 给流布局设置适配器
                 tagFlowLayout.setAdapter(tagAdapter);
-                //重置状态
+                //重置状态----全部设置为未选中状态
                 tagAdapter.setSelectedList(selectedMap.get(viewHolder.getItemPosition()));
 
-                tagFlowLayout.setOnSelectListener(new TagFlowLayout.OnSelectListener()
-                {
+                // 流布局设置选项选中监听
+                tagFlowLayout.setOnSelectListener(new TagFlowLayout.OnSelectListener() {
                     @Override
-                    public void onSelected(Set<Integer> selectPosSet)
-                    {
+                    public void onSelected(Set<Integer> selectPosSet) {
                         selectedMap.put(viewHolder.getItemPosition(), selectPosSet);
                     }
                 });
@@ -82,13 +80,13 @@ public class ListViewTestFragment extends Fragment
 
     }
 
-    private void initDatas()
-    {
-        for (int i = 'A'; i < 'z'; i++)
-        {
+    /**
+     * 初始化数据
+     */
+    private void initDatas() {
+        for (int i = 'A'; i < 'z'; i++) {
             List<String> itemData = new ArrayList<String>(3);
-            for (int j = 0; j < 3; j++)
-            {
+            for (int j = 0; j < 3; j++) {
                 itemData.add((char) i + "");
             }
             mDatas.add(itemData);

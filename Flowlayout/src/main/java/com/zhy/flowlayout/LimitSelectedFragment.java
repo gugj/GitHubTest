@@ -15,37 +15,38 @@ import com.zhy.view.flowlayout.TagFlowLayout;
 /**
  * Created by zhy on 15/9/10.
  */
-public class LimitSelectedFragment extends Fragment
-{
+public class LimitSelectedFragment extends Fragment {
+
+    /**
+     * 流布局选项内容的数组
+     */
     private String[] mVals = new String[]
             {"Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
                     "Android", "Weclome", "Button ImageView", "TextView", "Helloworld",
-                    "Android", "Weclome Hello", "Button Text", "TextView","Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
+                    "Android", "Weclome Hello", "Button Text", "TextView", "Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
                     "Android", "Weclome", "Button ImageView"};
 
+    /**
+     * 自定义的流式布局控件---View
+     */
     private TagFlowLayout mFlowLayout;
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_event_test, container, false);
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
-    {
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         final LayoutInflater mInflater = LayoutInflater.from(getActivity());
         mFlowLayout = (TagFlowLayout) view.findViewById(R.id.id_flowlayout);
+        // 流布局最多选择3个
         mFlowLayout.setMaxSelectCount(3);
-        mFlowLayout.setAdapter(new TagAdapter<String>(mVals)
-        {
-
+        mFlowLayout.setAdapter(new TagAdapter<String>(mVals) {
             @Override
-            public View getView(FlowLayout parent, int position, String s)
-            {
-                TextView tv = (TextView) mInflater.inflate(R.layout.tv,
-                        mFlowLayout, false);
+            public View getView(FlowLayout parent, int position, String s) {
+                TextView tv = (TextView) mInflater.inflate(R.layout.tv, mFlowLayout, false);
                 tv.setText(s);
                 return tv;
             }

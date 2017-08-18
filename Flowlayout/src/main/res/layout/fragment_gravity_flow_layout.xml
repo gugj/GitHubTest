@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="16dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="gravity:left" />
+        android:text="gravity:left"/>
 
+    <!-- 左对齐的流布局 -->
     <com.zhy.view.flowlayout.FlowLayout
         android:id="@+id/left_fl"
         android:layout_width="match_parent"
@@ -26,7 +27,7 @@
             android:background="@drawable/normal_bg"
             android:text="Breath And Life"
             android:textColor="@drawable/text_color"
-            android:textSize="13sp" />
+            android:textSize="13sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -36,7 +37,7 @@
             android:background="@drawable/normal_bg"
             android:text="Fallen"
             android:textColor="@drawable/text_color"
-            android:textSize="13sp" />
+            android:textSize="13sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -46,7 +47,7 @@
             android:background="@drawable/normal_bg"
             android:text="Brand-new World"
             android:textColor="@drawable/text_color"
-            android:textSize="13sp" />
+            android:textSize="13sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -56,7 +57,7 @@
             android:background="@drawable/normal_bg"
             android:text="Save you from anything"
             android:textColor="@drawable/text_color"
-            android:textSize="13sp" />
+            android:textSize="13sp"/>
 
     </com.zhy.view.flowlayout.FlowLayout>
 
@@ -64,8 +65,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
-        android:text="gravity:center" />
+        android:text="gravity:center"/>
 
+    <!-- 中间对齐的流布局 -->
     <com.zhy.view.flowlayout.FlowLayout
         android:id="@+id/center_fl"
         android:layout_width="match_parent"
@@ -81,7 +83,7 @@
             android:background="@drawable/normal_bg"
             android:text="Breath And Life"
             android:textColor="@drawable/text_color"
-            android:textSize="13sp" />
+            android:textSize="13sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -91,7 +93,7 @@
             android:background="@drawable/normal_bg"
             android:text="Fallen"
             android:textColor="@drawable/text_color"
-            android:textSize="13sp" />
+            android:textSize="13sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -101,7 +103,7 @@
             android:background="@drawable/normal_bg"
             android:text="Brand-new World"
             android:textColor="@drawable/text_color"
-            android:textSize="13sp" />
+            android:textSize="13sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -111,7 +113,7 @@
             android:background="@drawable/normal_bg"
             android:text="Save you from anything"
             android:textColor="@drawable/text_color"
-            android:textSize="13sp" />
+            android:textSize="13sp"/>
 
     </com.zhy.view.flowlayout.FlowLayout>
 
@@ -120,8 +122,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
-        android:text="gravity:right" />
+        android:text="gravity:right"/>
 
+    <!-- 右对齐的流布局 -->
     <com.zhy.view.flowlayout.FlowLayout
         android:id="@+id/right_fl"
         android:layout_width="match_parent"
@@ -137,7 +140,7 @@
             android:background="@drawable/normal_bg"
             android:text="Breath And Life"
             android:textColor="@drawable/text_color"
-            android:textSize="13sp" />
+            android:textSize="13sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -147,7 +150,7 @@
             android:background="@drawable/normal_bg"
             android:text="Fallen"
             android:textColor="@drawable/text_color"
-            android:textSize="13sp" />
+            android:textSize="13sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -157,7 +160,7 @@
             android:background="@drawable/normal_bg"
             android:text="Brand-new World"
             android:textColor="@drawable/text_color"
-            android:textSize="13sp" />
+            android:textSize="13sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -167,7 +170,7 @@
             android:background="@drawable/normal_bg"
             android:text="Save you from anything"
             android:textColor="@drawable/text_color"
-            android:textSize="13sp" />
+            android:textSize="13sp"/>
 
     </com.zhy.view.flowlayout.FlowLayout>
 

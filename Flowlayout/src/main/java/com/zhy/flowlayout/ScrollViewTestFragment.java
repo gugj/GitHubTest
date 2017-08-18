@@ -17,72 +17,70 @@ import java.util.Set;
 /**
  * Created by zhy on 15/9/10.
  */
-public class ScrollViewTestFragment extends Fragment
-{
+public class ScrollViewTestFragment extends Fragment {
+
+    /**
+     * 流布局选项内容的数组
+     */
     private String[] mVals = new String[]
             {"Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
                     "Android", "Weclome", "Button ImageView", "TextView", "Helloworld",
-                    "Android", "Weclome Hello", "Button Text", "TextView","Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
+                    "Android", "Weclome Hello", "Button Text", "TextView", "Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
                     "Android", "Weclome", "Button ImageView", "TextView", "Helloworld",
-                    "Android", "Weclome Hello", "Button Text", "TextView","Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
+                    "Android", "Weclome Hello", "Button Text", "TextView", "Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
                     "Android", "Weclome", "Button ImageView", "TextView", "Helloworld",
-                    "Android", "Weclome Hello", "Button Text", "TextView","Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
+                    "Android", "Weclome Hello", "Button Text", "TextView", "Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
                     "Android", "Weclome", "Button ImageView", "TextView", "Helloworld",
-                    "Android", "Weclome Hello", "Button Text", "TextView","Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
+                    "Android", "Weclome Hello", "Button Text", "TextView", "Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
                     "Android", "Weclome", "Button ImageView", "TextView", "Helloworld",
-                    "Android", "Weclome Hello", "Button Text", "TextView","Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
+                    "Android", "Weclome Hello", "Button Text", "TextView", "Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
                     "Android", "Weclome", "Button ImageView", "TextView", "Helloworld",
-                    "Android", "Weclome Hello", "Button Text", "TextView","Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
+                    "Android", "Weclome Hello", "Button Text", "TextView", "Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
                     "Android", "Weclome", "Button ImageView", "TextView", "Helloworld",
                     "Android", "Weclome Hello", "Button Text", "TextView"};
 
+    /**
+     * 自定义的流式布局控件---View
+     */
     private TagFlowLayout mFlowLayout;
-    private TagAdapter<String> mAdapter ;
+    private TagAdapter<String> mAdapter;
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_sc, container, false);
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
-    {
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         final LayoutInflater mInflater = LayoutInflater.from(getActivity());
         mFlowLayout = (TagFlowLayout) view.findViewById(R.id.id_flowlayout);
         //mFlowLayout.setMaxSelectCount(3);
 
-        mFlowLayout.setAdapter(mAdapter = new TagAdapter<String>(mVals)
-        {
-
+        mFlowLayout.setAdapter(mAdapter = new TagAdapter<String>(mVals) {
             @Override
-            public View getView(FlowLayout parent, int position, String s)
-            {
-                TextView tv = (TextView) mInflater.inflate(R.layout.tv,
-                        mFlowLayout, false);
+            public View getView(FlowLayout parent, int position, String s) {
+                TextView tv = (TextView) mInflater.inflate(R.layout.tv, mFlowLayout, false);
                 tv.setText(s);
                 return tv;
             }
         });
-        mAdapter.setSelectedList(1,3,5,7,8,9);
-        mFlowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener()
-        {
+
+        mAdapter.setSelectedList(1, 3, 5, 7, 8, 9);
+        // 流布局设置选项点击监听
+        mFlowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
-            public boolean onTagClick(View view, int position, FlowLayout parent)
-            {
+            public boolean onTagClick(View view, int position, FlowLayout parent) {
                 //Toast.makeText(getActivity(), mVals[position], Toast.LENGTH_SHORT).show();
                 //view.setVisibility(View.GONE);
                 return true;
             }
         });
 
-
-        mFlowLayout.setOnSelectListener(new TagFlowLayout.OnSelectListener()
-        {
+        // 流布局设置选项选中监听
+        mFlowLayout.setOnSelectListener(new TagFlowLayout.OnSelectListener() {
             @Override
-            public void onSelected(Set<Integer> selectPosSet)
-            {
+            public void onSelected(Set<Integer> selectPosSet) {
                 getActivity().setTitle("choose:" + selectPosSet.toString());
             }
         });
